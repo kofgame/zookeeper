@@ -20,7 +20,7 @@ import static org.mockito.Matchers.*;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class NodeMonitorTest {
+public class ZNodeMonitorTest {
 
     @InjectMocks
     ZNodeMonitor underTest = new ZNodeMonitor("localhost:2180");

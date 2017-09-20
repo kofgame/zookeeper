@@ -81,7 +81,7 @@ public class ZNodeMonitor implements Watcher, AsyncCallback.ChildrenCallback {
      * Something changed related to ZK connection or session
      * @param event
      */
-    public void processNoneEvent(WatchedEvent event) {
+    private void processNoneEvent(WatchedEvent event) {
         switch (event.getState()) {
             case SyncConnected:
                 System.out.println(listener.getProcessName() + " is connected to Zookeeper");
@@ -105,7 +105,7 @@ public class ZNodeMonitor implements Watcher, AsyncCallback.ChildrenCallback {
         }
     }
 
-    public void createRootIfNotExists() {
+    private void createRootIfNotExists() {
         Stat stat = null;
         try {
             stat = zooKeeper.exists(ROOT, true);
@@ -121,7 +121,7 @@ public class ZNodeMonitor implements Watcher, AsyncCallback.ChildrenCallback {
      * Sequential znodes guaranty that znode path will be unique.
      * @return
      */
-    public long createZnode() {
+    private long createZnode() {
         try {
             znode = zooKeeper.create(znode, new byte[0], ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
             System.out.println("<---- Created znode: " + znode + " ----->");
@@ -160,7 +160,7 @@ public class ZNodeMonitor implements Watcher, AsyncCallback.ChildrenCallback {
         }
     }
 
-    public long getLowestNumber(List<String> children) {
+    long getLowestNumber(List<String> children) {
         long lowest = sequenceNumber;
         for (String child : children) {
             long current = parseSequenceNumber(child);
