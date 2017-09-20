@@ -37,7 +37,7 @@ public class ZNodeMonitorTest {
 
     @Test
     public void testParseSequenceNumber() throws Exception {
-        assertEquals(44920000000026L, underTest.parseSequenceNumber("/ELECTION/Speaker-pid-44920000000026"));
+        assertEquals(27, underTest.parseSequenceNumber("/ELECTION/Speaker-pid-4492-0000000027"));
     }
 
     @Test
