@@ -1,0 +1,7 @@
+/target
+/.idea
+/*.iml
+/*.ipr
+/*.iws
+/out.txt
+zk-datadir
